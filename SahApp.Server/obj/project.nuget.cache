@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xgnsmInbun0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Sah App\\SahApp\\SahApp.Server\\SahApp.Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\oltea\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.16\\microsoft.aspnetcore.spaproxy.8.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

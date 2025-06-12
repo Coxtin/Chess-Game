@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:52940",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Sah App\\SahApp\\SahApp.Server\\..\\sahapp.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

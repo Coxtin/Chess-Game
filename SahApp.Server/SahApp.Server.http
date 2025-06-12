@@ -1,0 +1,6 @@
+@SahApp.Server_HostAddress = http://localhost:5260
+
+GET {{SahApp.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
