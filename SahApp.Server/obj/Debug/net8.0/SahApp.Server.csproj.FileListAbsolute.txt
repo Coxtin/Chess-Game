@@ -27,3 +27,33 @@ C:\Users\oltea\OneDrive\Documente\GitHub\Sah App\SahApp\SahApp.Server\obj\Debug\
 C:\Users\oltea\OneDrive\Documente\GitHub\Sah App\SahApp\SahApp.Server\obj\Debug\net8.0\SahApp.Server.genruntimeconfig.cache
 C:\Users\oltea\OneDrive\Documente\GitHub\Sah App\SahApp\SahApp.Server\obj\Debug\net8.0\ref\SahApp.Server.dll
 C:\Users\oltea\OneDrive\Documente\GitHub\Sah App\SahApp\SahApp.Server\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\appsettings.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\SahApp.Server.staticwebassets.endpoints.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\spa.proxy.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\SahApp.Server.exe
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\SahApp.Server.deps.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\SahApp.Server.runtimeconfig.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\SahApp.Server.dll
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\SahApp.Server.pdb
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\bin\Debug\net8.0\Microsoft.AspNetCore.SpaProxy.dll
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.csproj.AssemblyReference.cache
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\spa.proxy.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.AssemblyInfoInputs.cache
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.AssemblyInfo.cs
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.csproj.CoreCompileInputs.cache
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.sourcelink.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\scopedcss\bundle\SahApp.Server.styles.css
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.S.3D0724EE.Up2Date
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.dll
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\refint\SahApp.Server.dll
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.pdb
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.genruntimeconfig.cache
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\ref\SahApp.Server.dll

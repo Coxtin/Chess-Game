@@ -1,1 +1,2 @@
 C:\Users\oltea\OneDrive\Documente\GitHub\Sah App\SahApp\sahapp.client\obj\Debug\sahapp.client.esproj.CoreCompileInputs.cache
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\sahapp.client\obj\Debug\sahapp.client.esproj.CoreCompileInputs.cache

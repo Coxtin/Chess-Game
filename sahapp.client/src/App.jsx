@@ -53,7 +53,7 @@ const App = () => {
             document.removeEventListener('mouseup', handleMouseUp);
         };
 
-    }, [draggedPiece, draggedPieceIndex, dragOffset, pieces]); // Adăugat pieces în dependencies
+    }, [draggedPiece, draggedPieceIndex, dragOffset, pieces]); 
 
     //-------------------FUNCTIA DE INITIALIZARE TABLA DE SAH CU PRELUARE DIN BACKEND A PIESELOR----------------------
 
@@ -86,6 +86,7 @@ const App = () => {
 
         if (piece.color !== currentColor)
             return;
+
 
 
         console.log("am apasat click pe piesa:", piece, "la index:", index);
@@ -125,7 +126,8 @@ const App = () => {
         }));
     }
 
-    const handleMouseUp = (e) => {
+    const handleMouseUp = async (e) => {
+
         if (draggedPieceIndex === null) return;
 
         console.log("am ridicat click-ul pentru piesa la index:", draggedPieceIndex);
@@ -137,6 +139,14 @@ const App = () => {
 
         const newI = Math.floor(dropY / tileSize);
         const newJ = Math.floor(dropX / tileSize);
+
+        const piece = pieces[draggedPieceIndex];
+
+        if (verifyMove(piece, piece.i, piece.j, newI, newJ) === false) {
+            console.log("mutare invalida");
+            resetMove();
+            return;
+        }
 
         console.log(`Noile coordonate: i=${newI}, j=${newJ}`);
 
@@ -175,6 +185,53 @@ const App = () => {
         setCurrentPlayer(nextPlayer);
         setCurrentColor(nextColor);
     };
+
+    //--------------------------FUNCTIA CARE IMI VERIFICA MUTARIILE-----------------------
+
+    const verifyMove = async (piece, fromI, fromJ, toI, toJ) => {
+
+        try {
+            const response = await fetch("https://localhost:7122/game/verify", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    pieceType: piece.type,
+                    pieceColor: piece.color,
+                    fromI: fromI,
+                    fromJ: fromJ,
+                    toI: toI,
+                    toj: toJ
+
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error("HTTP error! status: ", response.status);
+            }
+
+            const data = await response.json();
+            return data.valid === true;
+        }
+        catch (err) {
+            console.error("am primit eroare la validarea mutarii:", err);
+            return false;
+        }
+    }
+
+    const resetMove = () => {
+        setPieces(prevPieces => {
+            const updatedPieces = [...prevPieces];
+            updatedPieces[draggedPieceIndex] = {
+                ...updatedPieces[draggedPieceIndex],
+                pixelX: undefined;
+                pixelY: undefined;
+            }
+            return updatedPieces;
+        })
+    }
 
     //---------------------------RETURNUL CARE AFISEAZA IN FRONTEND-------------------
 

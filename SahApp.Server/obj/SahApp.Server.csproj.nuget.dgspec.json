@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Sah App\\SahApp\\SahApp.Server\\SahApp.Server.csproj": {}
+    "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Sah App\\SahApp\\SahApp.Server\\SahApp.Server.csproj": {
+    "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Sah App\\SahApp\\SahApp.Server\\SahApp.Server.csproj",
+        "projectUniqueName": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj",
         "projectName": "SahApp.Server",
-        "projectPath": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Sah App\\SahApp\\SahApp.Server\\SahApp.Server.csproj",
+        "projectPath": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj",
         "packagesPath": "C:\\Users\\oltea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Sah App\\SahApp\\SahApp.Server\\obj\\",
+        "outputPath": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -71,6 +71,6 @@
         {
             return Image;
         }
-
+        public virtual bool IsValid(Board board, int fromI, int fromj, int toI, int toJ) { return false; }
     }
 }
