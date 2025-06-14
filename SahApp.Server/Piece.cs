@@ -1,4 +1,6 @@
-﻿namespace SahApp.Server
+﻿using System.Text.Json.Serialization;
+
+namespace SahApp.Server
 {
 
     public enum PieceType
@@ -13,9 +15,15 @@
     }
     public class Piece
     {
+        [JsonPropertyName("type")]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public PieceType Type { get; set; }
+
+        [JsonPropertyName("color")]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public PieceColor Color { get; set; }
 
+        [JsonPropertyName("image")]
         public string Image { get; set; }
         public Piece(PieceType _type , PieceColor _color)
         {
@@ -37,18 +45,18 @@
             Image = _image;
         }
 
-        public char GetPieceSymbol()
+        public string GetPieceSymbol()
         {
-            char symbol = Type switch
+            string symbol = Type switch
             {
 
-                PieceType.KING => 'K',
-                PieceType.QUEEN => 'Q',
-                PieceType.KNIGHT => 'N',
-                PieceType.BISHOP => 'B',
-                PieceType.ROOK => 'R',
-                PieceType.NONE => '/',
-                _ => '?'
+                PieceType.KING => "KING",
+                PieceType.QUEEN => "QUEEN",
+                PieceType.KNIGHT => "KNIGHT",
+                PieceType.BISHOP => "BISHOP",
+                PieceType.ROOK => "ROOK",
+                PieceType.NONE => "/",
+                _ => "?"
 
             };
             return symbol;

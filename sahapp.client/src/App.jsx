@@ -87,8 +87,6 @@ const App = () => {
         if (piece.color !== currentColor)
             return;
 
-
-
         console.log("am apasat click pe piesa:", piece, "la index:", index);
 
         const rect = e.target.getBoundingClientRect();
@@ -141,12 +139,17 @@ const App = () => {
         const newJ = Math.floor(dropX / tileSize);
 
         const piece = pieces[draggedPieceIndex];
+        const isValidMove = await verifyMove(piece, piece.i, piece.j, newI, newJ);
 
-        if (verifyMove(piece, piece.i, piece.j, newI, newJ) === false) {
+        if (!isValidMove) {
             console.log("mutare invalida");
             resetMove();
+            setDraggedPiece(null);
+            setDraggedPieceIndex(null);
+            setDragOffset({ x: 0, y: 0 });
             return;
         }
+
 
         console.log(`Noile coordonate: i=${newI}, j=${newJ}`);
 
@@ -164,15 +167,7 @@ const App = () => {
                 return updatedPieces;
             });
         } else {
-            setPieces(prevPieces => {
-                const updatedPieces = [...prevPieces];
-                updatedPieces[draggedPieceIndex] = {
-                    ...updatedPieces[draggedPieceIndex],
-                    pixelX: undefined,
-                    pixelY: undefined
-                };
-                return updatedPieces;
-            });
+            resetMove();
         }
 
         setDraggedPiece(null);
@@ -191,19 +186,22 @@ const App = () => {
     const verifyMove = async (piece, fromI, fromJ, toI, toJ) => {
 
         try {
-            const response = await fetch("https://localhost:7122/game/verify", {
+            const response = await fetch("https://localhost:7122/verify/move", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    pieceType: piece.type,
-                    pieceColor: piece.color,
+                    piece: {
+                        type: piece.type,
+                        color: piece.color,
+                        image: piece.image  
+                    },
                     fromI: fromI,
                     fromJ: fromJ,
                     toI: toI,
-                    toj: toJ
+                    toJ: toJ
 
                 })
             });
@@ -212,11 +210,16 @@ const App = () => {
                 throw new Error("HTTP error! status: ", response.status);
             }
 
+            console.log("mut piesa", piece);
             const data = await response.json();
             return data.valid === true;
         }
         catch (err) {
             console.error("am primit eroare la validarea mutarii:", err);
+            console.error("full error: ", {
+                message: err.message,
+                stack: err.stack
+            })
             return false;
         }
     }
@@ -226,12 +229,12 @@ const App = () => {
             const updatedPieces = [...prevPieces];
             updatedPieces[draggedPieceIndex] = {
                 ...updatedPieces[draggedPieceIndex],
-                pixelX: undefined;
-                pixelY: undefined;
+                pixelX: undefined,
+                pixelY: undefined,
             }
             return updatedPieces;
         })
-    }
+    };
 
     //---------------------------RETURNUL CARE AFISEAZA IN FRONTEND-------------------
 

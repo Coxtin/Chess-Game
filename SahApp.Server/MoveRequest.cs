@@ -1,13 +1,19 @@
-﻿namespace SahApp.Server
+﻿using System.Text.Json.Serialization;
+
+namespace SahApp.Server
 {
     public class MoveRequest
     {
-
-       private Piece piece { get; set; }
-        private int FromI { get; set; }
-        private int FromJ { get; set; }
-        private int ToI { get; set; }
-        private int ToJ { get; set; }
+        [JsonPropertyName("piece")]
+       public Piece piece { get; set; }
+        [JsonPropertyName("fromI")]
+        public int FromI { get; set; }
+        [JsonPropertyName("fromJ")]
+        public int FromJ { get; set; }
+        [JsonPropertyName("toI")]
+        public int ToI { get; set; }
+        [JsonPropertyName("toJ")]
+        public int ToJ { get; set; }
 
 
         public MoveRequest()
@@ -25,13 +31,13 @@
             this.FromI = fromI;
             this.FromJ = fromJ;
             this.ToI = toI;
-            this.FromJ = toJ;
+            this.ToJ = toJ;
         }
 
         public Piece GetPiece() => piece;
         public int GetFromI() => FromI;
         public int GetFromJ() => FromJ;
         public int GetToI() => ToI;
-        public int GetToj() => ToJ;
+        public int GetToJ() => ToJ;
     }
 }

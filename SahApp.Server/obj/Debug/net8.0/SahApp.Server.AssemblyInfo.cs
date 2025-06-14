@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SahApp.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e64c31389de2aedf362108514c6169dc8d23269")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11c6e01df2d15f11a9501b077dfa0a93a9fd9afc")]
 [assembly: System.Reflection.AssemblyProductAttribute("SahApp.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SahApp.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
