@@ -204,16 +204,16 @@ const App = () => {
             const boardState = Array(8).fill(null).map(() => Array(8).fill(null));
             pieces.forEach(p => {
                 boardState[p.i][p.j] = {
-                    type: p.type,
-                    color: p.color,
+                    type: p.type.toUpperCase(),
+                    color: p.color.toUpperCase(),
                     image: p.image
                 };
             });
 
             const requestPayload = {
                 piece: {
-                    type: piece.type,
-                    color: piece.color,
+                    type: piece.type.toUpperCase(),
+                    color: piece.color.toUpperCase(),
                     image: piece.image
                 },
                 fromI: fromI,
@@ -240,24 +240,28 @@ const App = () => {
             console.log("- Status Text:", response.statusText);
             console.log("- Headers:", Object.fromEntries(response.headers.entries()));
 
+            const resultText = await response.text();
+            console.log("raw response", resultText);
+
             if (!response.ok) {
                 console.error("Response not OK! Status:", response.status, "StatusText:", response.statusText);
-
-                // Try to read the response body for error details
-                try {
-                    const errorText = await response.text();
-                    console.error("Error response body:", errorText);
-                } catch (textError) {
-                    console.error("Could not read error response body:", textError);
-                    throw new Error(`HTTP error! status: ${response.status}, statusText: ${response.statusText}`);
-                }
+                console.error("Error response body: ", resultText);
+                throw new Error(`HTTP error! status:  ${response.status}, status text: ${response.statusText}`);
             }
 
             console.log("mut piesa", piece);
 
-            // Log before parsing JSON
+            let data;
+            try {
+                data = JSON.parse(resultText);
+            }
+            catch (err) {
+                console.error("Failed to parse : ", err);
+                console.error("Response was : ", responseText);
+                throw new Error("Invalid JSON response from server");
+            }
+
             console.log("Attempting to parse response as JSON...");
-            const data = await response.json();
             console.log("Parsed response data:", data);
             console.log("data.valid:", data.valid);
             console.log("data.valid === true:", data.valid === true);
@@ -325,11 +329,9 @@ const App = () => {
                 var piece = boardState[i][j];
                 if (piece && piece.type !== "NONE" && piece.color !== "NONE") {
                     newPieces.push({
-                        piece: {
-                            type: piece.type,
-                            color: piece.color,
-                            image: piece.image
-                        },
+                        type: piece.type.toLowerCase(),
+                        color: piece.color.toLowerCase(),
+                        image: piece.image,
                         i: i,
                         j: j
                     });

@@ -17,7 +17,7 @@ namespace SahApp.Server.Controllers
         public VerifyController(ILogger<VerifyController> logger)
         {
             _logger = logger;
-        } 
+        }
 
         [HttpPost("move")]
 
@@ -41,7 +41,7 @@ namespace SahApp.Server.Controllers
                     return BadRequest(new { error = "Piesa este nula" });
                 }
 
-                _logger.LogInformation($"Piesa + coordonate: {moveRequest}");   
+                _logger.LogInformation($"Piesa + coordonate: {moveRequest}");
 
                 var board = new Board();
 
@@ -52,11 +52,11 @@ namespace SahApp.Server.Controllers
                         for (int j = 0; j < 8; j++)
                         {
                             if (moveRequest.BoardState[i][j] != null)
-                                board.pieces[i,j] = moveRequest.BoardState[i][j];
+                                board.pieces[i, j] = moveRequest.BoardState[i][j];
                         }
                     }
                 }
-            
+
                 var piece = board.pieces[moveRequest.GetFromI(), moveRequest.GetFromJ()];
 
                 if (piece.Type != moveRequest.GetPiece().Type || !Equals(piece.Color.ToString().ToLower(), moveRequest.GetPiece().Color.ToString().ToLower()))
@@ -70,29 +70,46 @@ namespace SahApp.Server.Controllers
                 _logger.LogInformation($"valoare isValidMove este {isValidMove}");
 
                 if (isValidMove)
-                    return Ok(new { valid = true, updatedBoard = ConvertBoard2Array(board) }); 
+                { 
+                    return Ok(new { valid = true, updatedBoard = ConvertBoardToJaggedArray(board) });
+                }
                 else
                     return Ok(new { valid = false });
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _logger.LogError(e, "Error in VerifyMove");
-                return BadRequest(new {error = $"Eroare la controller: {e.Message}"});
+                return BadRequest(new { error = $"Eroare la controller: {e.Message}" });
             }
         }
+
+
+        private static Piece[][] ConvertBoardToJaggedArray(Board board)
+        {
+            var result = new Piece[8][];
+            for (int i = 0; i < 8; i++)
+            {
+                result[i] = new Piece[8];
+                for (int j = 0; j < 8; j++)
+                {
+                    result[i][j] = board.pieces[i, j];
+                }
+            }
+            return result;
+        }
+
         private static Piece[,] ConvertBoard2Array(Board board)
         {
-
-            var result = new Piece[8,8];
+            var result = new Piece[8, 8];
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    result[i,j] = board.pieces[i,j];
+                    result[i, j] = board.pieces[i, j];
                 }
             }
             return result;
         }
     }
-    
+
 }
