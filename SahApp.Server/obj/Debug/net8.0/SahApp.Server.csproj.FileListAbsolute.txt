@@ -57,3 +57,7 @@ C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8
 C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.pdb
 C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\SahApp.Server.genruntimeconfig.cache
 C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\ref\SahApp.Server.dll
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\oltea\OneDrive\Documente\GitHub\Chess-Game\SahApp.Server\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json

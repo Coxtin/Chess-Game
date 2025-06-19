@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Dynamic;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Mvc;
 using SahApp.Server.Models;
 
 namespace SahApp.Server.Controllers
@@ -41,6 +44,18 @@ namespace SahApp.Server.Controllers
                 _logger.LogInformation($"Piesa + coordonate: {moveRequest}");   
 
                 var board = new Board();
+
+                if (moveRequest.BoardState != null)
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        for (int j = 0; j < 8; j++)
+                        {
+                            if (moveRequest.BoardState[i][j] != null)
+                                board.pieces[i,j] = moveRequest.BoardState[i][j];
+                        }
+                    }
+                }
             
                 var piece = board.pieces[moveRequest.GetFromI(), moveRequest.GetFromJ()];
 
@@ -55,7 +70,7 @@ namespace SahApp.Server.Controllers
                 _logger.LogInformation($"valoare isValidMove este {isValidMove}");
 
                 if (isValidMove)
-                    return Ok(new { valid = true });
+                    return Ok(new { valid = true, updatedBoard = ConvertBoard2Array(board) }); 
                 else
                     return Ok(new { valid = false });
             }
@@ -64,7 +79,19 @@ namespace SahApp.Server.Controllers
                 _logger.LogError(e, "Error in VerifyMove");
                 return BadRequest(new {error = $"Eroare la controller: {e.Message}"});
             }
-            
+        }
+        private static Piece[,] ConvertBoard2Array(Board board)
+        {
+
+            var result = new Piece[8,8];
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    result[i,j] = board.pieces[i,j];
+                }
+            }
+            return result;
         }
     }
     

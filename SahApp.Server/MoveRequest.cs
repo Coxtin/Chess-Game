@@ -14,6 +14,8 @@ namespace SahApp.Server
         public int ToI { get; set; }
         [JsonPropertyName("toJ")]
         public int ToJ { get; set; }
+        [JsonPropertyName("boardState")]
+        public Piece[][] BoardState { get; set; }
 
 
         public MoveRequest()
@@ -40,4 +42,11 @@ namespace SahApp.Server
         public int GetToI() => ToI;
         public int GetToJ() => ToJ;
     }
+
+    /*public class PiecePosition
+    {
+        public int I { get; set; }
+        public int J { get; set; }
+        public Piece Piece { get; set; }
+    }*/
 }

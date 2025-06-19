@@ -141,7 +141,7 @@ const App = () => {
         const piece = pieces[draggedPieceIndex];
         const isValidMove = await verifyMove(piece, piece.i, piece.j, newI, newJ);
 
-        if (!isValidMove) {
+        if (!isValidMove.isValid) {
             console.log("mutare invalida");
             resetMove();
             setDraggedPiece(null);
@@ -166,8 +166,14 @@ const App = () => {
                 };
                 return updatedPieces;
             });
+
+
         } else {
             resetMove();
+        }
+
+        if (isValidMove.updatedBoard) {
+            updatePieceFromBoard(isValidMove.updatedBoard);
         }
 
         setDraggedPiece(null);
@@ -184,43 +190,117 @@ const App = () => {
     //--------------------------FUNCTIA CARE IMI VERIFICA MUTARIILE-----------------------
 
     const verifyMove = async (piece, fromI, fromJ, toI, toJ) => {
+        console.log("=== verifyMove START ===");
+        console.log("Input parameters:", {
+            piece: piece,
+            fromI: fromI,
+            fromJ: fromJ,
+            toI: toI,
+            toJ: toJ
+        });
 
         try {
+
+            const boardState = Array(8).fill(null).map(() => Array(8).fill(null));
+            pieces.forEach(p => {
+                boardState[p.i][p.j] = {
+                    type: p.type,
+                    color: p.color,
+                    image: p.image
+                };
+            });
+
+            const requestPayload = {
+                piece: {
+                    type: piece.type,
+                    color: piece.color,
+                    image: piece.image
+                },
+                fromI: fromI,
+                fromJ: fromJ,
+                toI: toI,
+                toJ: toJ,
+                boardState: boardState 
+            };
+            console.log("Request payload:", JSON.stringify(requestPayload, null, 2));
+
+            console.log("Sending request to: https://localhost:7122/verify/move");
+
             const response = await fetch("https://localhost:7122/verify/move", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({
-                    piece: {
-                        type: piece.type,
-                        color: piece.color,
-                        image: piece.image  
-                    },
-                    fromI: fromI,
-                    fromJ: fromJ,
-                    toI: toI,
-                    toJ: toJ
-
-                })
+                body: JSON.stringify(requestPayload)
             });
 
+            console.log("Response received:");
+            console.log("- Status:", response.status);
+            console.log("- Status Text:", response.statusText);
+            console.log("- Headers:", Object.fromEntries(response.headers.entries()));
+
             if (!response.ok) {
-                throw new Error("HTTP error! status: ", response.status);
+                console.error("Response not OK! Status:", response.status, "StatusText:", response.statusText);
+
+                // Try to read the response body for error details
+                try {
+                    const errorText = await response.text();
+                    console.error("Error response body:", errorText);
+                } catch (textError) {
+                    console.error("Could not read error response body:", textError);
+                    throw new Error(`HTTP error! status: ${response.status}, statusText: ${response.statusText}`);
+                }
             }
 
             console.log("mut piesa", piece);
+
+            // Log before parsing JSON
+            console.log("Attempting to parse response as JSON...");
             const data = await response.json();
-            return data.valid === true;
+            console.log("Parsed response data:", data);
+            console.log("data.valid:", data.valid);
+            console.log("data.valid === true:", data.valid === true);
+
+            const result = {
+
+                isValid: data.valid === true,
+                updatedBoard: data.updatedBoard || null
+
+            };
+
+            console.log("Final result:", result);
+            console.log("=== verifyMove END (SUCCESS) ===");
+
+            return result;
         }
         catch (err) {
-            console.error("am primit eroare la validarea mutarii:", err);
-            console.error("full error: ", {
-                message: err.message,
-                stack: err.stack
-            })
-            return false;
+            console.error("=== ERROR CAUGHT ===");
+            console.error("Error type:", err.constructor.name);
+            console.error("Error message:", err.message);
+
+            if (err instanceof TypeError) {
+                console.error("This is a TypeError - likely network/fetch issue");
+            }
+            if (err instanceof SyntaxError) {
+                console.error("This is a SyntaxError - likely JSON parsing issue");
+            }
+
+            console.error("Full error object:", err);
+            console.error("Error stack:", err.stack);
+
+            // Additional network-specific debugging
+            if (err.message.includes('fetch')) {
+                console.error("Fetch-related error detected");
+                console.error("Possible causes:");
+                console.error("- Server not running on https://localhost:7122");
+                console.error("- CORS issues");
+                console.error("- SSL certificate issues (localhost with https)");
+                console.error("- Network connectivity issues");
+            }
+
+            console.log("=== verifyMove END (ERROR) ===");
+            return {isValid : false, updatedBoard : null};
         }
     }
 
@@ -236,13 +316,37 @@ const App = () => {
         })
     };
 
-    //---------------------------RETURNUL CARE AFISEAZA IN FRONTEND-------------------
+    const updatePieceFromBoard = (boardState) => {
+
+        const newPieces = [];
+
+        for (let i = 0; i < 8; i++) {
+            for (let j = 0; j < 8; j++) {
+                var piece = boardState[i][j];
+                if (piece && piece.type !== "NONE" && piece.color !== "NONE") {
+                    newPieces.push({
+                        piece: {
+                            type: piece.type,
+                            color: piece.color,
+                            image: piece.image
+                        },
+                        i: i,
+                        j: j
+                    });
+                }
+            }
+        }
+        setPieces(newPieces);
+    };
+
+    //---------------------------RETURN-UL CARE AFISEAZA IN FRONTEND-------------------
 
     return (
         <div className="container">
             <p>Este randul tau <strong> {currentPlayer} </strong> si ai culoarea {currentColor}</p>
 
             <div className="chessboard">
+               
                 {tiles}
 
                 {pieces.map((piece, index) => {

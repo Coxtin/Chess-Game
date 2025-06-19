@@ -13,15 +13,21 @@
 
             if (board == null) return false;
 
-            if (toI < 0 || toI > 8 || toJ < 0 || toJ > 8) return false;
+            if (toI < 0 || toI >= 8 || toJ < 0 || toJ >= 8) return false;
 
             if (fromI == toI && fromJ == toJ) return false;
 
             if (fromJ == toJ && toI == fromI + direction && board.pieces[toI, toJ].Type == PieceType.NONE)
                 return true;
 
-            
+            if (toI == fromI + direction && toJ == fromJ - direction && board.pieces[toI, toJ].Color == PieceColor.BLACK)
+            {
+                
+                board.pieces[toI, toJ] = new Piece();
+                return true;
 
+            }            
+            
             return false;
 
         }
