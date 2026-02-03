@@ -10,7 +10,6 @@ const FrontPage = () => {
     const [Color2, setColor2] = useState('');
 
 
-
     const navigate = useNavigate();
   
 
@@ -26,8 +25,8 @@ const FrontPage = () => {
                 body: JSON.stringify({
                     player1: Player1,
                     player2: Player2,
-                    color1: Color1,
-                    color2: Color2
+                    color1: "",
+                    color2: ""
                 })
             });
 
@@ -37,17 +36,16 @@ const FrontPage = () => {
 
             const data = await response.json();
             console.log("am primit: ", data);
-            setPlayer1(Player1);
-            setColor1(Color1);
-            setPlayer2(Player2);
-            setColor2(Player2);
+
+            //setPlayer1(Player1);
+            //setPlayer2(Player2);
 
             navigate('/game', {
                 state: {
-                    player1: Player1,
-                    player2: Player2,
-                    color1: Color1,
-                    color2: Color2
+                    player1: data.player1,
+                    player2: data.player2,
+                    color1: data.color1,
+                    color2: data.color2
             }});
         } catch (err) {
             console.error("am primit eroarea la fetch: ", err);

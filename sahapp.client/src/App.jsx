@@ -1,5 +1,5 @@
 ﻿import { useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 const App = () => {
@@ -8,19 +8,26 @@ const App = () => {
 
     const location = useLocation();
     const { player1, player2, color1, color2 } = location.state || {};
-    const [currentPlayer, setCurrentPlayer] = useState(color1 == "white" ? player1 : player2);
-    const [currentColor, setCurrentColor] = useState(color1 == "white" ? "white" : "black");
+    const [currentPlayer, setCurrentPlayer] = useState(color1.toLowerCase() == "white" ? player1 : player2);
+    const [currentColor, setCurrentColor] = useState("white");
+
+    //console.log("Date initializare joc", {
+    //player1, player2, color1, color2});
 
     const [tiles, setTiles] = useState([]);
     const [pieces, setPieces] = useState([]);
+
+    const piecesRef = useRef(pieces);
+
+    useEffect(() => {
+        piecesRef.current = pieces;
+    }, [pieces]);
 
     const tileSize = 100;
 
     const [draggedPiece, setDraggedPiece] = useState(null);
     const [draggedPieceIndex, setDraggedPieceIndex] = useState(null);
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
-    
-
 
     //---------------------INITIALIZARE TABLA DE SAH----------------------
 
@@ -45,24 +52,28 @@ const App = () => {
 
 
     useEffect(() => {
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', handleMouseUp);
+        const handleMouseMoveWrapper = (e) => handleMouseMove(e);
+        const handleMouseUpWrapper = (e) => handleMouseUp(e);
+
+        document.addEventListener('mousemove', handleMouseMoveWrapper);
+        document.addEventListener('mouseup', handleMouseUpWrapper);
 
         return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', handleMouseUp);
+            document.removeEventListener('mousemove', handleMouseMoveWrapper);
+            document.removeEventListener('mouseup', handleMouseUpWrapper);
         };
 
-    }, [draggedPiece, draggedPieceIndex, dragOffset, pieces]); 
+    }, [draggedPiece, draggedPieceIndex, dragOffset]); 
 
     //-------------------FUNCTIA DE INITIALIZARE TABLA DE SAH CU PRELUARE DIN BACKEND A PIESELOR----------------------
 
     const initializeBoard = async () => {
         try {
+            console.log("Initializing board...");
             const response = await fetch("https://localhost:7122/board/state", {
-                method: "POST",
+                method: "GET",
                 headers: {
-                    'Content-Type': 'application/json',
+                    //'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 }
             });
@@ -72,8 +83,19 @@ const App = () => {
             }
 
             const pieceData = await response.json();
-            setPieces(pieceData);
+            
+            // Normalize the data to match i/j format instead of row/col
+            const formattedPieces = pieceData.map(p => ({
+                ...p,
+                // Map row/col from server to i/j used in frontend
+                i: p.row !== undefined ? p.row : p.i, 
+                j: p.col !== undefined ? p.col : p.j,
+                // Ensure types are lowercase to match updatePieceFromBoard logic
+                type: p.type ? p.type.toLowerCase() : p.type,
+                color: p.color ? p.color.toLowerCase() : p.color
+            }));
 
+            setPieces(formattedPieces);
         }
         catch (err) {
             console.error("am primit eroare de la board: ", err);
@@ -87,8 +109,6 @@ const App = () => {
         if (piece.color !== currentColor)
             return;
 
-        console.log("am apasat click pe piesa:", piece, "la index:", index);
-
         const rect = e.target.getBoundingClientRect();
         setDraggedPiece(piece);
         setDraggedPieceIndex(index);
@@ -100,8 +120,6 @@ const App = () => {
 
     const handleMouseMove = (e) => {
         if (draggedPieceIndex === null) return;
-
-        console.log("misc mouse-ul pentru piesa la index:", draggedPieceIndex);
 
         const boardRect = document.querySelector(".chessboard").getBoundingClientRect();
         const newX = e.clientX - boardRect.left - dragOffset.x;
@@ -116,19 +134,11 @@ const App = () => {
             };
             return updatedPieces;
         });
-
-        setDraggedPiece(prevPiece => ({
-            ...prevPiece,
-            pixelX: newX,
-            pixelY: newY
-        }));
     }
 
     const handleMouseUp = async (e) => {
 
         if (draggedPieceIndex === null) return;
-
-        console.log("am ridicat click-ul pentru piesa la index:", draggedPieceIndex);
 
         const boardRect = document.querySelector(".chessboard").getBoundingClientRect();
 
@@ -138,76 +148,57 @@ const App = () => {
         const newI = Math.floor(dropY / tileSize);
         const newJ = Math.floor(dropX / tileSize);
 
-        const piece = pieces[draggedPieceIndex];
-        const isValidMove = await verifyMove(piece, piece.i, piece.j, newI, newJ);
-
-        if (!isValidMove.isValid) {
-            console.log("mutare invalida");
+        // Check bounds
+        if (newI < 0 || newI >= 8 || newJ < 0 || newJ >= 8) {
             resetMove();
             setDraggedPiece(null);
             setDraggedPieceIndex(null);
-            setDragOffset({ x: 0, y: 0 });
             return;
         }
 
-
-        console.log(`Noile coordonate: i=${newI}, j=${newJ}`);
-
+        const currentPieces = piecesRef.current;
+        const piece = currentPieces[draggedPieceIndex];
         
-        if (newI >= 0 && newI < 8 && newJ >= 0 && newJ < 8) {
-            setPieces(prevPieces => {
-                const updatedPieces = [...prevPieces];
-                updatedPieces[draggedPieceIndex] = {
-                    ...updatedPieces[draggedPieceIndex],
-                    i: newI,
-                    j: newJ,
-                    pixelX: undefined, 
-                    pixelY: undefined
-                };
-                return updatedPieces;
-            });
+        const moveResult = await verifyMove(piece, piece.i, piece.j, newI, newJ);
 
-
-        } else {
+        if (!moveResult.isValid) {
+            console.log("mutare invalida");
             resetMove();
-        }
-
-        if (isValidMove.updatedBoard) {
-            updatePieceFromBoard(isValidMove.updatedBoard);
+        } else {
+            console.log(`Mutare valida! Noile coordonate: i=${newI}, j=${newJ}`);
+            if (moveResult.updatedBoard) {
+                updatePieceFromBoard(moveResult.updatedBoard);
+            }
+            
+            const nextColor = currentColor === "white" ? "black" : "white";
+            const nextPlayer = currentPlayer === player1 ? player2 : player1;
+            setCurrentPlayer(nextPlayer);
+            setCurrentColor(nextColor);
         }
 
         setDraggedPiece(null);
         setDraggedPieceIndex(null);
         setDragOffset({ x: 0, y: 0 });
-
-        const nextColor = currentColor === "white" ? "black" : "white";
-        const nextPlayer = currentPlayer === player1 ? player2 : player1;
-
-        setCurrentPlayer(nextPlayer);
-        setCurrentColor(nextColor);
     };
 
     //--------------------------FUNCTIA CARE IMI VERIFICA MUTARIILE-----------------------
 
     const verifyMove = async (piece, fromI, fromJ, toI, toJ) => {
-        console.log("=== verifyMove START ===");
-        console.log("Input parameters:", {
-            piece: piece,
-            fromI: fromI,
-            fromJ: fromJ,
-            toI: toI,
-            toJ: toJ
-        });
-
+        
         try {
-
+            const currentPieces = piecesRef.current;
             const boardState = Array(8).fill(null).map(() => Array(8).fill(null));
-            pieces.forEach(p => {
-                boardState[p.i][p.j] = {
-                    type: p.type.toUpperCase(),
-                    color: p.color.toUpperCase(),
-                    image: p.image
-                };
+            
+            // Build the board state from current pieces
+            currentPieces.forEach(p => {
+                // Ensure p.i and p.j exist before using them
+                if (p.i !== undefined && p.j !== undefined) {
+                    boardState[p.i][p.j] = {
+                        type: p.type.toUpperCase(),
+                        color: p.color.toUpperCase(),
+                        image: p.image
+                    };
+                }
             });
 
             const requestPayload = {
@@ -220,11 +211,9 @@ const App = () => {
                 fromJ: fromJ,
                 toI: toI,
                 toJ: toJ,
-                boardState: boardState 
+                boardState: boardState,
+                //currentColor: currentColor
             };
-            console.log("Request payload:", JSON.stringify(requestPayload, null, 2));
-
-            console.log("Sending request to: https://localhost:7122/verify/move");
 
             const response = await fetch("https://localhost:7122/verify/move", {
                 method: "POST",
@@ -235,76 +224,20 @@ const App = () => {
                 body: JSON.stringify(requestPayload)
             });
 
-            console.log("Response received:");
-            console.log("- Status:", response.status);
-            console.log("- Status Text:", response.statusText);
-            console.log("- Headers:", Object.fromEntries(response.headers.entries()));
-
-            const resultText = await response.text();
-            console.log("raw response", resultText);
-
             if (!response.ok) {
-                console.error("Response not OK! Status:", response.status, "StatusText:", response.statusText);
-                console.error("Error response body: ", resultText);
-                throw new Error(`HTTP error! status:  ${response.status}, status text: ${response.statusText}`);
+                const errorText = await response.text();
+                return { isValid: false, updatedBoard: null };
             }
 
-            console.log("mut piesa", piece);
-
-            let data;
-            try {
-                data = JSON.parse(resultText);
-            }
-            catch (err) {
-                console.error("Failed to parse : ", err);
-                console.error("Response was : ", responseText);
-                throw new Error("Invalid JSON response from server");
-            }
-
-            console.log("Attempting to parse response as JSON...");
-            console.log("Parsed response data:", data);
-            console.log("data.valid:", data.valid);
-            console.log("data.valid === true:", data.valid === true);
-
-            const result = {
-
+            const data = await response.json();
+            return {
                 isValid: data.valid === true,
                 updatedBoard: data.updatedBoard || null
-
             };
-
-            console.log("Final result:", result);
-            console.log("=== verifyMove END (SUCCESS) ===");
-
-            return result;
         }
         catch (err) {
-            console.error("=== ERROR CAUGHT ===");
-            console.error("Error type:", err.constructor.name);
-            console.error("Error message:", err.message);
-
-            if (err instanceof TypeError) {
-                console.error("This is a TypeError - likely network/fetch issue");
-            }
-            if (err instanceof SyntaxError) {
-                console.error("This is a SyntaxError - likely JSON parsing issue");
-            }
-
-            console.error("Full error object:", err);
-            console.error("Error stack:", err.stack);
-
-            // Additional network-specific debugging
-            if (err.message.includes('fetch')) {
-                console.error("Fetch-related error detected");
-                console.error("Possible causes:");
-                console.error("- Server not running on https://localhost:7122");
-                console.error("- CORS issues");
-                console.error("- SSL certificate issues (localhost with https)");
-                console.error("- Network connectivity issues");
-            }
-
-            console.log("=== verifyMove END (ERROR) ===");
-            return {isValid : false, updatedBoard : null};
+            console.error("Move validation error:", err);
+            return { isValid: false, updatedBoard: null };
         }
     }
 
@@ -327,7 +260,11 @@ const App = () => {
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
                 var piece = boardState[i][j];
-                if (piece && piece.type !== "NONE" && piece.color !== "NONE") {
+                // Handle different possible casing from server ("NONE" or "none")
+                if (piece && 
+                    piece.type.toUpperCase() !== "NONE" && 
+                    piece.color.toUpperCase() !== "NONE") {
+                    
                     newPieces.push({
                         type: piece.type.toLowerCase(),
                         color: piece.color.toLowerCase(),
@@ -349,7 +286,7 @@ const App = () => {
 
             <div className="chessboard">
                
-                {tiles}
+                { tiles }
 
                 {pieces.map((piece, index) => {
                     const isDragging = draggedPieceIndex === index;

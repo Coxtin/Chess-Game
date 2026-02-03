@@ -13,6 +13,7 @@ namespace SahApp.Server.Controllers
         {
 
             var color = new Random().Next(2);
+            Console.Write(color);
             Player player1, player2;
 
             if (color == 1)
@@ -29,9 +30,11 @@ namespace SahApp.Server.Controllers
 
             return Ok(new
             {
-                message = $"bine ati venit bai {player1.GetName()} +  si {player2.GetName()} + {player2.GetColor()}",
-                color1 = player1.GetColor() ? "white" : "black",
-                color2 = player2.GetColor() ? "white" : "black"
+               message = $"{player1.ToString()} si {player2.ToString()}",
+               player1 = player1.GetName(),
+               player2 = player2.GetName(),
+               color1 = player1.GetColor() ? "white" : "black",
+               color2 = player2.GetColor() ? "white" : "black"
             });
 
         }

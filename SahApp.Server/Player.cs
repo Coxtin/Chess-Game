@@ -34,5 +34,10 @@
             return Color;
         }
 
+        public override string ToString()
+        {
+            return $"{GetName()}, ai culoarea {(GetColor() ? "alb" : "negru")}";
+        }
+
     }
 }

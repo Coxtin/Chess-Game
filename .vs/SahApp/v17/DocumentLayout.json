@@ -3,40 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F459ACBE-DDB5-DCB3-4C5D-6634060269E1}|sahapp.client\\sahapp.client.esproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{F459ACBE-DDB5-DCB3-4C5D-6634060269E1}|sahapp.client\\sahapp.client.esproj|solutionrelative:sahapp.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\controllers\\verifycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\controllers\\verifycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\models\\queen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\models\\queen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\models\\pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\models\\pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\models\\rook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\models\\rook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\models\\verifycheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\models\\verifycheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\models\\king.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\models\\king.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\models\\bishop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\models\\bishop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\models\\piecefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\models\\piecefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.server\\playerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A88027DB-F11C-45F1-A65A-9D2EE7503B26}|SahApp.Server\\SahApp.Server.csproj|solutionrelative:sahapp.server\\playerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F459ACBE-DDB5-DCB3-4C5D-6634060269E1}|sahapp.client\\sahapp.client.esproj|c:\\users\\oltea\\onedrive\\documente\\github\\chess-game\\sahapp.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{F459ACBE-DDB5-DCB3-4C5D-6634060269E1}|sahapp.client\\sahapp.client.esproj|solutionrelative:sahapp.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,116 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Rook.cs",
-              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\Rook.cs",
-              "RelativeDocumentMoniker": "SahApp.Server\\Models\\Rook.cs",
-              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\Rook.cs",
-              "RelativeToolTip": "SahApp.Server\\Models\\Rook.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T16:54:07.084Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Queen.cs",
-              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\Queen.cs",
-              "RelativeDocumentMoniker": "SahApp.Server\\Models\\Queen.cs",
-              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\Queen.cs",
-              "RelativeToolTip": "SahApp.Server\\Models\\Queen.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T16:54:04.794Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "King.cs",
               "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\King.cs",
               "RelativeDocumentMoniker": "SahApp.Server\\Models\\King.cs",
               "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\King.cs",
               "RelativeToolTip": "SahApp.Server\\Models\\King.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAIwBQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T16:54:03.091Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Bishop.cs",
-              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\Bishop.cs",
-              "RelativeDocumentMoniker": "SahApp.Server\\Models\\Bishop.cs",
-              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\Bishop.cs",
-              "RelativeToolTip": "SahApp.Server\\Models\\Bishop.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T16:54:00.855Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Program.cs",
-              "RelativeDocumentMoniker": "SahApp.Server\\Program.cs",
-              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Program.cs",
-              "RelativeToolTip": "SahApp.Server\\Program.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAlwB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T11:33:17.921Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PlayerRequest.cs",
-              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\PlayerRequest.cs",
-              "RelativeDocumentMoniker": "SahApp.Server\\PlayerRequest.cs",
-              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\PlayerRequest.cs",
-              "RelativeToolTip": "SahApp.Server\\PlayerRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T16:44:06.767Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "App.jsx",
-              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\sahapp.client\\src\\App.jsx",
-              "RelativeDocumentMoniker": "sahapp.client\\src\\App.jsx",
-              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\sahapp.client\\src\\App.jsx",
-              "RelativeToolTip": "sahapp.client\\src\\App.jsx",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAiwEgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-13T01:36:40.911Z",
+              "WhenOpened": "2026-01-27T17:20:33.562Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Pawn.cs",
-              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\Pawn.cs",
-              "RelativeDocumentMoniker": "SahApp.Server\\Models\\Pawn.cs",
-              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\Pawn.cs",
-              "RelativeToolTip": "SahApp.Server\\Models\\Pawn.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA3wCIAAAAFAAAAAAAAAA==",
+              "Title": "Piece.cs",
+              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Piece.cs",
+              "RelativeDocumentMoniker": "SahApp.Server\\Piece.cs",
+              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Piece.cs",
+              "RelativeToolTip": "SahApp.Server\\Piece.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAYwFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T03:13:37.102Z"
+              "WhenOpened": "2026-01-27T16:57:54.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PieceFactory.cs",
+              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\PieceFactory.cs",
+              "RelativeDocumentMoniker": "SahApp.Server\\Models\\PieceFactory.cs",
+              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\PieceFactory.cs",
+              "RelativeToolTip": "SahApp.Server\\Models\\PieceFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T16:51:40.274Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "verifyCheck.cs",
+              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\verifyCheck.cs",
+              "RelativeDocumentMoniker": "SahApp.Server\\Models\\verifyCheck.cs",
+              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Models\\verifyCheck.cs",
+              "RelativeToolTip": "SahApp.Server\\Models\\verifyCheck.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwB8AAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T13:49:38.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "VerifyController.cs",
               "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Controllers\\VerifyController.cs",
               "RelativeDocumentMoniker": "SahApp.Server\\Controllers\\VerifyController.cs",
               "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\Controllers\\VerifyController.cs",
               "RelativeToolTip": "SahApp.Server\\Controllers\\VerifyController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAYwFUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAF4AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T23:30:36.255Z"
+              "WhenOpened": "2026-01-15T20:57:13.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\sahapp.client\\src\\App.jsx",
+              "RelativeDocumentMoniker": "sahapp.client\\src\\App.jsx",
+              "ToolTip": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\sahapp.client\\src\\App.jsx",
+              "RelativeToolTip": "sahapp.client\\src\\App.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-13T01:36:40.911Z"
             }
           ]
         }

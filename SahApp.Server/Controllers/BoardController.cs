@@ -8,10 +8,12 @@ namespace SahApp.Server.Controllers
     public class BoardController : ControllerBase
     {
 
-        [HttpPost("state")]
+        [HttpGet("state")]
 
         public ActionResult GetBoardState()
         {
+
+            Console.WriteLine("Verific starea tablei");
 
             var board = new Board();
             var pieceData = new List<object>();

@@ -1,4 +1,5 @@
-﻿using System.Dynamic;
+﻿using System.Drawing;
+using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
@@ -53,9 +54,13 @@ namespace SahApp.Server.Controllers
                         {
                             if (moveRequest.BoardState[i][j] != null)
                                 board.pieces[i, j] = moveRequest.BoardState[i][j];
+                            else
+                                board.pieces[i, j] = new Piece(PieceType.NONE, PieceColor.NONE);
                         }
                     }
                 }
+
+                //Piece lastPieceMoved = new Piece();
 
                 var piece = board.pieces[moveRequest.GetFromI(), moveRequest.GetFromJ()];
 
@@ -69,9 +74,33 @@ namespace SahApp.Server.Controllers
                 bool isValidMove = PieceInstance.IsValid(board, moveRequest.GetFromI(), moveRequest.GetFromJ(), moveRequest.GetToI(), moveRequest.GetToJ());
                 _logger.LogInformation($"valoare isValidMove este {isValidMove}");
 
+                //ShowBoard(board, "Tabla normala");
+
+                //Console.WriteLine();
+
+                //ShowBoard(ReverseBoard(board), "Tabla intoarsa");
+
                 if (isValidMove)
-                { 
-                    return Ok(new { valid = true, updatedBoard = ConvertBoardToJaggedArray(board) });
+                {
+                    board.pieces[moveRequest.GetToI(), moveRequest.GetToJ()] = board.pieces[moveRequest.GetFromI(), moveRequest.GetFromJ()];
+                    board.pieces[moveRequest.GetFromI(), moveRequest.GetFromJ()] = new Piece(PieceType.NONE, PieceColor.NONE);
+
+                    PieceColor opponentColor = (moveRequest.GetPiece().Color == PieceColor.WHITE) ? PieceColor.BLACK : PieceColor.WHITE;
+
+                    bool isCheck = VerifyCheck.isKingInCheck(board, opponentColor);
+
+                    if (isCheck)
+                        Console.WriteLine($"ESTI IN CHECK FRATE! Culoarea este {opponentColor}");
+
+                    //ShowBoard(board, "Tabla normala");
+
+                    Console.WriteLine();
+
+                    //ShowBoard(ReverseBoard(board), "Tabla intoarsa");
+
+                    //lastPieceMoved = board.pieces[moveRequest.GetToI(), moveRequest.GetToJ()];
+
+                    return Ok(new { valid = true, updatedBoard = ConvertBoardToJaggedArray(ReverseBoard(board)) });
                 }
                 else
                     return Ok(new { valid = false });
@@ -98,18 +127,39 @@ namespace SahApp.Server.Controllers
             return result;
         }
 
-        private static Piece[,] ConvertBoard2Array(Board board)
-        {
-            var result = new Piece[8, 8];
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    result[i, j] = board.pieces[i, j];
+        private static void ShowBoard(Board board, string message){
+
+            Console.WriteLine(message);
+
+            for (int i = 0; i < 8; i++){
+                //Console.Write($"{i}");
+                for (int j = 0; j < 8; j++){
+                  
+                    var piece = board.pieces[i, j];
+                    var symbol = piece.GetPieceSymbol();
+                    var color = piece.GetPieceColor();
+
+                    if (piece.Type == PieceType.NONE)
+                        Console.Write(". ");
+                    else
+                        Console.Write($"{color}{symbol} ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        private static Board ReverseBoard(Board board){
+
+            Board reversedBoard = new Board();
+
+            for (int i = 7; i >= 0; i--){
+                for (int j = 7; j >= 0; j--){
+                    reversedBoard.pieces[7 - i, 7 - j] = board.pieces[i, j];
                 }
             }
-            return result;
+
+            return reversedBoard;
+
         }
     }
-
 }

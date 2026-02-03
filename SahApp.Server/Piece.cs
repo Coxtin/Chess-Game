@@ -55,6 +55,7 @@ namespace SahApp.Server
                 PieceType.KNIGHT => "KNIGHT",
                 PieceType.BISHOP => "BISHOP",
                 PieceType.ROOK => "ROOK",
+                PieceType.PAWN => "Pawn",
                 PieceType.NONE => "/",
                 _ => "?"
 
@@ -80,5 +81,6 @@ namespace SahApp.Server
             return Image;
         }
         public virtual bool IsValid(Board board, int fromI, int fromj, int toI, int toJ) { return false; }
+        //public virtual bool isKingInCheck(Board board, PieceColor color) { return false; }
     }
 }

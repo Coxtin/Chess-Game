@@ -2,16 +2,13 @@
 {
     public class Pawn : Piece
     {
-
         public Pawn(Piece boardPiece) : base(boardPiece.Type, boardPiece.Color, boardPiece.Image) { }
-        public Pawn(PieceType type, PieceColor color) : base(type, color) { }
 
         public override bool IsValid(Board board, int fromI, int fromJ, int toI, int toJ)
         {
-            
-            int direction = (Color == PieceColor.WHITE) ? -1 : 1;
-
             if (board == null) return false;
+
+            int direction = (toI - fromI > 0) ? 1 : -1;
 
             if (toI < 0 || toI >= 8 || toJ < 0 || toJ >= 8) return false;
 
@@ -20,17 +17,24 @@
             if (fromJ == toJ && toI == fromI + direction && board.pieces[toI, toJ].Type == PieceType.NONE)
                 return true;
 
-            if (toI == fromI + direction && toJ == fromJ - direction && board.pieces[toI, toJ].Color == PieceColor.BLACK)
+            if (toI == fromI + direction && toJ == fromJ - direction)
             {
-                
-                board.pieces[toI, toJ] = new Piece();
-                return true;
-
-            }            
+                Piece target = board.pieces[toI, toJ];
+                if (target.Type != PieceType.NONE && target.Color != this.Color)
+                    return true;
+            }
+            
+            if (toI == fromI + direction && toJ == fromJ + direction)
+            {
+                Piece target = board.pieces[toI, toJ];
+                if (target.Type != PieceType.NONE && target.Color != this.Color)
+                    return true;
+            }
+            
+            // 3. Optional: Initial 2-square move logic (if you want to implement it later)
+            // int startRow = (direction == 1) ? 1 : 6; // Rough guess for standard board
             
             return false;
-
         }
-
     }
 }
