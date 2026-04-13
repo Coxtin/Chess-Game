@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:52940",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\..\\sahapp.client",
+"WorkingDirectory": "C:\\Users\\oltea\\Documents\\GitHub\\Chess-Game\\SahApp.Server\\..\\sahapp.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

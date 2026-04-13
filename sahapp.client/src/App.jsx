@@ -10,7 +10,7 @@ const App = () => {
     const { player1, player2, color1, color2 } = location.state || {};
     const [currentPlayer, setCurrentPlayer] = useState(color1.toLowerCase() == "white" ? player1 : player2);
     const [currentColor, setCurrentColor] = useState("white");
-
+    const [message, setMessage] = useState("");
     //console.log("Date initializare joc", {
     //player1, player2, color1, color2});
 
@@ -70,7 +70,7 @@ const App = () => {
     const initializeBoard = async () => {
         try {
             console.log("Initializing board...");
-            const response = await fetch("https://localhost:7122/board/state", {
+            const response = await fetch("/board/state", {
                 method: "GET",
                 headers: {
                     //'Content-Type': 'application/json',
@@ -174,6 +174,13 @@ const App = () => {
             const nextPlayer = currentPlayer === player1 ? player2 : player1;
             setCurrentPlayer(nextPlayer);
             setCurrentColor(nextColor);
+
+            if (moveResult.warning) {
+                setMessage("ESTI IN CHECK!")
+            } else {
+                setMessage("");
+            }
+
         }
 
         setDraggedPiece(null);
@@ -215,7 +222,7 @@ const App = () => {
                 //currentColor: currentColor
             };
 
-            const response = await fetch("https://localhost:7122/verify/move", {
+            const response = await fetch("/verify/move", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -226,13 +233,14 @@ const App = () => {
 
             if (!response.ok) {
                 const errorText = await response.text();
-                return { isValid: false, updatedBoard: null };
+                return { isValid: false, updatedBoard: null /*, warning = false */};
             }
 
             const data = await response.json();
             return {
                 isValid: data.valid === true,
-                updatedBoard: data.updatedBoard || null
+                updatedBoard: data.updatedBoard || null,
+                warning : data.warning || false
             };
         }
         catch (err) {
@@ -283,6 +291,7 @@ const App = () => {
     return (
         <div className="container">
             <p>Este randul tau <strong> {currentPlayer} </strong> si ai culoarea {currentColor}</p>
+            { message ? message : "" }
 
             <div className="chessboard">
                

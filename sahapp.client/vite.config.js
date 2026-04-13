@@ -1,4 +1,4 @@
-import { fileURLToPath, URL } from 'node:url';
+﻿import { fileURLToPath, URL } from 'node:url';
 
 import { defineConfig } from 'vite';
 import plugin from '@vitejs/plugin-react';
@@ -47,10 +47,16 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/weatherforecast': {
+            '/board': {
+                target, 
+                secure: false,
+                changeOrigin: true,
+            },
+            '/verify': {
                 target,
-                secure: false
-            }
+                secure: false,
+                changeOrigin: true,
+            },
         },
         port: parseInt(env.DEV_SERVER_PORT || '52940'),
         https: {

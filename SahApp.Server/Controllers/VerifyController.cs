@@ -99,7 +99,7 @@ namespace SahApp.Server.Controllers
 
                     Console.WriteLine();
 
-                    return Ok(new { valid = true, updatedBoard = ConvertBoardToJaggedArray(ReverseBoard(board)) });
+                    return Ok(new { valid = true, updatedBoard = ConvertBoardToJaggedArray(ReverseBoard(board)) , warning = isCheck ? true : false });
                 }
                 else
                 {

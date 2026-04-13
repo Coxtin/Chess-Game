@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "uQ9bKrN8DeQ=",
+  "dgSpecHash": "9wDuf/RMhPo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj",
+  "projectFilePath": "C:\\Users\\oltea\\Documents\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\oltea\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.23\\microsoft.aspnetcore.spaproxy.8.0.23.nupkg.sha512"
+    "C:\\Users\\oltea\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.25\\microsoft.aspnetcore.spaproxy.8.0.25.nupkg.sha512"
   ],
   "logs": []
 }

@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "Microsoft.AspNetCore.SpaProxy/8.0.23": {
+      "Microsoft.AspNetCore.SpaProxy/8.0.25": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.SpaProxy.dll": {}
@@ -20,10 +20,10 @@
     }
   },
   "libraries": {
-    "Microsoft.AspNetCore.SpaProxy/8.0.23": {
-      "sha512": "g7whRdNtTf+ngEbr1HMeb4hzR5JWDeTOcycZFp6vPb1GYN8KLeqPdR/nmmbs6r8yxFqh4VTcoPSSexFS8ZiX0A==",
+    "Microsoft.AspNetCore.SpaProxy/8.0.25": {
+      "sha512": "jDv9gydWXVRAMtphfpBJloNDwUED8t01RJEs2HSpguv+6an/VdXllo7FRMkbvHdyL7I3J2hmbEQBg/XIrtZGWA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.spaproxy/8.0.23",
+      "path": "microsoft.aspnetcore.spaproxy/8.0.25",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -31,7 +31,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "build/Microsoft.AspNetCore.SpaProxy.targets",
         "lib/net8.0/Microsoft.AspNetCore.SpaProxy.dll",
-        "microsoft.aspnetcore.spaproxy.8.0.23.nupkg.sha512",
+        "microsoft.aspnetcore.spaproxy.8.0.25.nupkg.sha512",
         "microsoft.aspnetcore.spaproxy.nuspec"
       ]
     }
@@ -48,11 +48,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj",
+      "projectUniqueName": "C:\\Users\\oltea\\Documents\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj",
       "projectName": "SahApp.Server",
-      "projectPath": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj",
+      "projectPath": "C:\\Users\\oltea\\Documents\\GitHub\\Chess-Game\\SahApp.Server\\SahApp.Server.csproj",
       "packagesPath": "C:\\Users\\oltea\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oltea\\OneDrive\\Documente\\GitHub\\Chess-Game\\SahApp.Server\\obj\\",
+      "outputPath": "C:\\Users\\oltea\\Documents\\GitHub\\Chess-Game\\SahApp.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -67,6 +67,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -85,7 +86,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -115,7 +116,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
