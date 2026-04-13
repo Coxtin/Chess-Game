@@ -2,6 +2,8 @@
 
 O aplicație web full-stack pentru a juca șah, care dispune de un frontend în React și un backend ASP.NET Core Web API ce aplică regulile jocului și validarea mutărilor.
 
+> **Notă:** Acest proiect este încă în curs de dezvoltare (Work In Progress) și nu este finalizat 100%. Anumite funcționalități pot fi incomplete, iar pe parcurs pot apărea actualizări și îmbunătățiri.
+
 ## Funcționalități
 - **Gameplay Interactiv:** O interfață de șah complet funcțională, construită cu React.
 - **Validare pe Server:** Toate validările mutărilor, actualizările stării tablei de joc și detectările situațiilor de șah (`verifyCheck`) sunt gestionate în siguranță pe backend.

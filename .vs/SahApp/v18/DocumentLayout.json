@@ -72,7 +72,7 @@
               "RelativeDocumentMoniker": "README.md",
               "ToolTip": "C:\\Users\\oltea\\Documents\\GitHub\\Chess-Game\\README.md",
               "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAADJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2026-04-13T23:47:04.32Z",
               "EditorCaption": ""
@@ -207,8 +207,7 @@
               "RelativeToolTip": "SahApp.Server\\Controllers\\VerifyController.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAYwGUAAACSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T21:52:16.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-10T21:52:16.99Z"
             },
             {
               "$type": "Document",
